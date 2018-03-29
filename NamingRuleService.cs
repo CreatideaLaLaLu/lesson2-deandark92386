@@ -41,13 +41,18 @@ namespace Taoyuan.Port.VotingSystem.Service.BaseDatas
 
             //bad 上面已有動作
             //if (DoTrue() == true) { DoTrue(); }
+            //good
+            if (DoTrue())
+            {
+                DoTrue();
+            }
 
 
-            //bad 1*(1+1)/2 =1 , index = 1 
+            //bad 
             //return (index * (index + 1) / 2);
 
             //good
-            return (index);
+            return index * (index + 1) / 2;
         }
 
         private bool DoTrue()
