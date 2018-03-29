@@ -12,14 +12,32 @@ namespace Taoyuan.Port.VotingSystem.Service.BaseDatas
         {
             switch (index)
             {
-                case 1: break;
-                default: break;
+                //bad
+                //case 1: break;
+                //default: break;
+                //good
+                case 1:
+                    break;
+                default:
+                    break;
+            }
+            //bad
+            //if (index == 0)
+            //    DoTrue();
+            //else
+            //    DoFalse();
+
+
+            //good
+            if (index == 0)
+            {
+                DoTrue();
             }
 
-            if (index == 0)
-                DoTrue();
             else
+            {
                 DoFalse();
+            }
 
             //bad 上面已有動作
             //if (DoTrue() == true) { DoTrue(); }
@@ -28,7 +46,7 @@ namespace Taoyuan.Port.VotingSystem.Service.BaseDatas
             //bad 1*(1+1)/2 =1 , index = 1 
             //return (index * (index + 1) / 2);
 
-            //god
+            //good
             return (index);
         }
 
@@ -47,9 +65,11 @@ namespace Taoyuan.Port.VotingSystem.Service.BaseDatas
             //bad 
             if (value != null | value != "") value = NewString.Replace("A", ",").Replace("B", "_").Replace("C", " ");
 
-            //god
+            //good
             if (value != null || value != "")
-                value = NewString.Replace("A", ",").Replace("B", "_").Replace("C", " ");
+            {
+                value = new StringBuilder(value).Replace("A", ",").Replace("B", "_").Replace("C", " ").ToString();
+            }
 
         }
 
